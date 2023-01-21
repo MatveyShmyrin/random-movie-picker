@@ -4,7 +4,7 @@ import styles from "../styles/StartPageName.module.css";
 const StartPageName = () => {
     return (
         <div className={styles.StartPageName}>
-            <h1>Random Movie Picker</h1>
+            <h1>Случайный фильм</h1>
         </div>
     );
 };

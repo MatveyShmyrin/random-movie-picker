@@ -1,9 +1,12 @@
 import React from 'react';
+import StartPageGenreSelect from "./StartPageGenreSelect";
+import StartPageCountrySelect from "./StartPageCountrySelect";
 
 const StartPageFilter = () => {
     return (
         <div>
-            Start Page Filter
+            <StartPageGenreSelect/>
+            <StartPageCountrySelect/>
         </div>
     );
 };
