@@ -1,0 +1,13 @@
+.MoviePage {
+  width: 1000px;
+  height: 750px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=MoviePage.module.css.map */

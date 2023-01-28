@@ -2,7 +2,7 @@ import {combineReducers} from "redux";
 import {
     SET_COUNTRY, SET_DESCRIPTION, SET_FILM_LENGTH, SET_FILTER_COUNTRY, SET_FILTER_GENRE,
     SET_GENRES,
-    SET_ID,
+    SET_ID, SET_IS_LOADED, SET_IS_LOADING,
     SET_MAX_RATING,
     SET_MIN_RATING,
     SET_NAME_EN,
@@ -117,7 +117,32 @@ const movieReducer = (state: any = initialStateMovie, action:any) => {
     }
 }
 
-const rootReducer = combineReducers({filter: filtersReducer, movie: movieReducer});
+const initialStateApp = {
+    isLoading: false,
+    isLoaded: false
+}
+
+const appReducer = (state: any = initialStateApp, action:any) => {
+    switch (action.type) {
+        case SET_IS_LOADING:
+            return {
+                ...state,
+                isLoading: action.payload
+            }
+        case SET_IS_LOADED:
+            return {
+                ...state,
+                isLoaded: action.payload
+            }
+        default:
+            return state;
+    }
+}
+
+
+
+
+const rootReducer = combineReducers({filter: filtersReducer, movie: movieReducer, app: appReducer});
 const store = configureStore({reducer: rootReducer});
 
 

@@ -1,16 +1,28 @@
 import React from 'react';
 import StartPage from "./components/StartPage";
 import styles from "./styles/App.module.css";
-import {Provider} from "react-redux";
-import store from "./redux/store";
+import {Navigate, Route,  Routes} from "react-router-dom";
+import MoviePage from "./components/MoviePage";
+import {useSelector} from "react-redux";
+import {RootState} from "./index";
 
 function App() {
-  return (
-      <Provider store={store}>
+
+    let isLoaded = useSelector<RootState, boolean>(store => store.app.isLoaded);
+
+    return (
             <div className={styles.App}>
-                <StartPage />
+                <Routes>
+                    <Route path="/" element={<StartPage/>} />
+                    <Route path="/movie" element={
+                        isLoaded ? (
+                            <><MoviePage/></>
+                        ) : (
+                            <Navigate replace to="/" />
+                        )
+                    } />
+                </Routes>
             </div>
-      </Provider>
   );
 }
 

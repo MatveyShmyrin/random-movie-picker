@@ -13,3 +13,6 @@ export const SET_RATING = "SET_RATING";
 export const SET_FILM_LENGTH = "SET_FILM_LENGTH";
 export const SET_COUNTRY = "SET_COUNTRY";
 export const SET_GENRES = "SET_GENRES";
+
+export const SET_IS_LOADING = "SET_IS_LOADING";
+export const SET_IS_LOADED = "SET_IS_LOADED";
