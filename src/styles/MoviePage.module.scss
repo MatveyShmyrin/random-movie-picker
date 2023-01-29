@@ -9,6 +9,62 @@
   display: flex;
   flex-direction: column;
 }
-.MoviePageRollAndLoading{
 
+.MoviePageRollAndLoading{
+  margin-top: 50px;
+  margin-left: 400px;
+}
+
+.MoviePagePoster{
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 270px;
+  height: 400px;
+}
+
+.MoviePageNames{
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 600px;
+  height: fit-content;
+}
+
+.MoviePagePoster img{
+  width: 270px;
+  height: 400px;
+}
+
+.MoviePageDescription{
+  margin-top: 25px;
+  margin-left: 50px;
+  width: 600px;
+  height: fit-content;
+}
+.MoviePageYear{
+  margin-top: 25px;
+  margin-left: 50px;
+  width: 600px;
+  height: fit-content;
+}
+.MoviePageRating{
+  margin-left: 150px;
+  margin-top: 10px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 50px;
+}
+.MoviePageFilmLength{
+  margin-left: 50px;
+  width: 600px;
+  height: fit-content;
+}
+.MoviePageGenres{
+  margin-left: 50px;
+  width: 600px;
+  height: fit-content;
+}
+.MoviePageCountry{
+  margin-left: 50px;
+  width: 600px;
+  height: fit-content;
 }

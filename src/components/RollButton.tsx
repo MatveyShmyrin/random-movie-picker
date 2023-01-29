@@ -24,6 +24,7 @@ import {
 
 const RollButton = (props: any) => {
     let filter = useSelector<RootState, number>(store => store.filter);
+    let movie = useSelector<RootState, number>(store => store.movie);
     let minRating = useSelector<RootState, number>(store => store.filter.minRating);
     let maxRating = useSelector<RootState, number>(store => store.filter.maxRating);
     let country = useSelector<RootState, number|"">(store => store.filter.country);
@@ -44,9 +45,9 @@ const RollButton = (props: any) => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div style={{width: props.w, height: props.h, marginTop: props.mT}}>
             <ColorButton
-                style={{width: props.w, height: props.h, marginTop: props.mT}}
+                style={{width: props.w, height: props.h}}
                 onClick={() => {
                 console.log("Filter settings: ");
                 console.log(filter);
@@ -113,6 +114,7 @@ const RollButton = (props: any) => {
                         setTimeout(() => {
                             dispatch({type: SET_IS_LOADED, payload: true});
                             console.log("LOADED");
+                            console.log(movie);
                         }, 1)
                     }
                 ).then(()=>{

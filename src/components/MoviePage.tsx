@@ -2,23 +2,39 @@ import React from 'react';
 import RollButton from "./RollButton";
 import LoadingSpinner from "./LoadingSpinner";
 import styles from "../styles/MoviePage.module.css";
-import {useSelector} from "react-redux";
-import {RootState} from "../index";
+import MoviePagePoster from "./MoviePagePoster";
+import MoviePageNames from "./MoviePageNames";
+import {Container} from "react-bootstrap";
+import MoviePageDescription from "./MoviePageDescription";
+import MoviePageRating from "./MoviePageRating";
+import MoviePageYear from "./MoviePageYear";
+import MoviePageGenres from "./MoviePageGenres";
+import MoviePageCountry from "./MoviePageCountry";
+import MoviePageFilmLength from "./MoviePageFilmLength";
+
+
 
 const MoviePage = () => {
 
-    let posterUrl = useSelector<RootState, string>(store => store.movie.posterUrl);
-    let nameRu = useSelector<RootState, string>(store => store.movie.nameRu);
-    let nameEn = useSelector<RootState, string>(store => store.movie.nameEn);
-
     return (
         <div className={styles.MoviePage}>
-            <h1>{nameRu}</h1>
-            <h1>{nameEn}</h1>
-            <img src = {posterUrl} width = {"270px"} height={"400px"} />
+            <Container style={{display: "flex", flexDirection: "row"}}>
+                <div style={{display: "flex", flexDirection: "column"}}>
+                    <MoviePagePoster />
+                    <MoviePageRating />
+                </div>
+                <div style={{display: "flex", flexDirection: "column"}}>
+                    <MoviePageNames />
+                    <MoviePageYear />
+                    <MoviePageFilmLength />
+                    <MoviePageGenres />
+                    <MoviePageCountry />
+                    <MoviePageDescription />
+                </div>
+            </Container>
             <div className={styles.MoviePageRollAndLoading}>
-                <RollButton />
-                <LoadingSpinner />
+                <RollButton w = {"200px"} h = {"50px"}/>
+                <LoadingSpinner mL = {"65px"}/>
             </div>
         </div>
     );
