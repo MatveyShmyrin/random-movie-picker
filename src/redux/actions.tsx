@@ -2,7 +2,6 @@ export const SET_MIN_RATING = "SET_MIN_RATING";
 export const SET_MAX_RATING = "SET_MAX_RATING";
 export const SET_FILTER_COUNTRY = "SET_FILTER_COUNTRY";
 export const SET_FILTER_GENRE = "SET_FILTER_GENRE";
-
 export const SET_ID = "SET_ID";
 export const SET_NAME_RU = "SET_NAME_RU";
 export const SET_NAME_EN = "SET_NAME_EN";
@@ -13,6 +12,9 @@ export const SET_RATING = "SET_RATING";
 export const SET_FILM_LENGTH = "SET_FILM_LENGTH";
 export const SET_COUNTRY = "SET_COUNTRY";
 export const SET_GENRES = "SET_GENRES";
-
+export const SET_WEB_URL = "SET_WEB_URL";
+export const SET_PREVIOUS_MOVIE = "SET_PREVIOUS_MOVIE";
 export const SET_IS_LOADING = "SET_IS_LOADING";
 export const SET_IS_LOADED = "SET_IS_LOADED";
+export const SET_PREVIOUS_MOVIE_BACK = "SET_PREVIOUS_MOVIE_BACK";
+export const SET_DISABLED_PREVIOUS_MOVIE_BUTTON = "SET_DISABLED_PREVIOUS_MOVIE_BUTTON";

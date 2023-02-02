@@ -7,7 +7,7 @@ const MoviePageRating = () => {
     let rating = useSelector<RootState, string>(store => store.movie.rating);
     return (
         <div className={styles.MoviePageRating}>
-            {rating}
+            {rating.toString().length == 1 ? <b style={{marginLeft: "20px"}}>{rating}</b> : <b>{rating}</b>}
         </div>
     );
 };

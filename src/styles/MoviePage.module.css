@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Graphik LCG Bold";
+  src: local("Graphik LCG Bold"), local("Graphik-LCG-Bold"), url("fonts/GraphikLCG-Bold.woff2") format("woff2"), url("fonts/GraphikLCG-Bold.woff") format("woff"), url("fonts/GraphikLCG-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Graphik LCG";
+  src: local("Graphik LCG Regular"), local("Graphik-LCG-Regular"), url("fonts/GraphikLCG-Regular.woff2") format("woff2"), url("fonts/GraphikLCG-Regular.woff") format("woff"), url("fonts/GraphikLCG-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
 .MoviePage {
   width: 1000px;
   height: 750px;
@@ -11,8 +23,7 @@
 }
 
 .MoviePageRollAndLoading {
-  margin-top: 50px;
-  margin-left: 400px;
+  margin-top: 100px;
 }
 
 .MoviePagePoster {
@@ -27,6 +38,7 @@
   margin-top: 50px;
   width: 600px;
   height: fit-content;
+  font-family: "Graphik LCG Bold";
 }
 
 .MoviePagePoster img {
@@ -39,6 +51,7 @@
   margin-left: 50px;
   width: 600px;
   height: fit-content;
+  font-family: "Graphik LCG";
 }
 
 .MoviePageYear {
@@ -46,6 +59,7 @@
   margin-left: 50px;
   width: 600px;
   height: fit-content;
+  font-family: "Graphik LCG";
 }
 
 .MoviePageRating {
@@ -54,24 +68,41 @@
   width: fit-content;
   height: fit-content;
   font-size: 50px;
+  font-family: "Graphik LCG Bold";
 }
 
 .MoviePageFilmLength {
   margin-left: 50px;
   width: 600px;
   height: fit-content;
+  font-family: "Graphik LCG";
 }
 
 .MoviePageGenres {
   margin-left: 50px;
   width: 600px;
   height: fit-content;
+  font-family: "Graphik LCG";
 }
 
 .MoviePageCountry {
   margin-left: 50px;
   width: 600px;
   height: fit-content;
+  font-family: "Graphik LCG";
+}
+
+.MoviePageLink {
+  margin-left: 50px;
+  margin-top: 10px;
+  width: 600px;
+  height: fit-content;
+  font-family: "Graphik LCG";
+}
+
+.MoviePageButtons {
+  display: flex;
+  flex-direction: row;
 }
 
 /*# sourceMappingURL=MoviePage.module.css.map */

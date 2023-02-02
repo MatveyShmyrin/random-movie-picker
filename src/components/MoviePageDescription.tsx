@@ -7,9 +7,7 @@ const MoviePageDescription = () => {
     let description = useSelector<RootState, string|null>(store => store.movie.description);
     return (
         <div className={styles.MoviePageDescription}>
-            Описание:
-            <React.Fragment><br/></React.Fragment>
-            {(description !== "" && description !== null) ? <div>{description}</div> : <div>Нет описания</div>}
+            <div><b>Описание: </b> {(description !== "" && description !== null) ? <span>{description}</span> : <span>Нет описания</span>}</div>
         </div>
     );
 };

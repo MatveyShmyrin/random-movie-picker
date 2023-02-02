@@ -7,7 +7,8 @@ const MoviePageFilmLength = () => {
     let filmLength = useSelector<RootState, string>(store => store.movie.filmLength);
     return (
         <div className={styles.MoviePageFilmLength}>
-            Длительность фильма: {filmLength} минут
+            {(filmLength == null || filmLength == "") ? <div><b>Длительность фильма:</b>неизвестна</div>
+                : <div><b>Длительность фильма:</b> {filmLength} минут</div>}
         </div>
     );
 };

@@ -11,6 +11,9 @@ import MoviePageYear from "./MoviePageYear";
 import MoviePageGenres from "./MoviePageGenres";
 import MoviePageCountry from "./MoviePageCountry";
 import MoviePageFilmLength from "./MoviePageFilmLength";
+import MoviePageLink from "./MoviePageLink";
+import PreviousMovieButton from "./PreviousMovieButton";
+import BackButton from "./BackButton";
 
 
 
@@ -30,11 +33,20 @@ const MoviePage = () => {
                     <MoviePageGenres />
                     <MoviePageCountry />
                     <MoviePageDescription />
+                    <MoviePageLink />
                 </div>
             </Container>
-            <div className={styles.MoviePageRollAndLoading}>
-                <RollButton w = {"200px"} h = {"50px"}/>
-                <LoadingSpinner mL = {"65px"}/>
+
+
+            <div>
+                <div className={styles.MoviePageButtons}>
+                    <PreviousMovieButton/>
+                    <RollButton w = {"200px"} h = {"50px"} mL = {"200px"} mT = {"100px"}/>
+                    <BackButton/>
+                </div>
+                <div>
+                    <LoadingSpinner mL = {"465px"}/>
+                </div>
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ const MoviePageCountry = () => {
     let country = useSelector<RootState, string>(store => store.movie.country);
     return (
         <div className={styles.MoviePageCountry}>
-            Страна: {country}
+            <b>Страна:</b> {country}
         </div>
     );
 };

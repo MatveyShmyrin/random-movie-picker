@@ -1,13 +1,25 @@
 import {combineReducers} from "redux";
 import {
-    SET_COUNTRY, SET_DESCRIPTION, SET_FILM_LENGTH, SET_FILTER_COUNTRY, SET_FILTER_GENRE,
+    SET_COUNTRY,
+    SET_DESCRIPTION,
+    SET_DISABLED_PREVIOUS_MOVIE_BUTTON,
+    SET_FILM_LENGTH,
+    SET_FILTER_COUNTRY,
+    SET_FILTER_GENRE,
     SET_GENRES,
-    SET_ID, SET_IS_LOADED, SET_IS_LOADING,
+    SET_ID,
+    SET_IS_LOADED,
+    SET_IS_LOADING,
     SET_MAX_RATING,
     SET_MIN_RATING,
     SET_NAME_EN,
     SET_NAME_RU,
-    SET_POSTER_URL, SET_RATING, SET_YEAR
+    SET_POSTER_URL,
+    SET_PREVIOUS_MOVIE,
+    SET_PREVIOUS_MOVIE_BACK,
+    SET_RATING,
+    SET_WEB_URL,
+    SET_YEAR
 } from "./actions";
 import { configureStore } from '@reduxjs/toolkit';
 
@@ -57,7 +69,8 @@ const initialStateMovie = {
     rating: "",
     genres: [],
     country: "",
-    filmLength: ""
+    filmLength: "",
+    webUrl: ""
 }
 
 const movieReducer = (state: any = initialStateMovie, action:any) => {
@@ -112,6 +125,63 @@ const movieReducer = (state: any = initialStateMovie, action:any) => {
                 ...state,
                 filmLength: action.payload
             }
+        case SET_WEB_URL:
+            return {
+                ...state,
+                webUrl: action.payload
+            }
+        case SET_PREVIOUS_MOVIE_BACK:
+            return {
+                ...state,
+                id: action.payload.id,
+                nameRu: action.payload.nameRu,
+                nameEn: action.payload.nameEn,
+                posterUrl: action.payload.posterUrl,
+                description: action.payload.description,
+                year: action.payload.year,
+                rating: action.payload.rating,
+                genres: action.payload.genres,
+                country: action.payload.country,
+                filmLength: action.payload.filmLength,
+                webUrl: action.payload.webUrl
+            }
+        default:
+            return state;
+    }
+}
+
+const initialStatePreviousMovie = {
+    id: "",
+    nameRu: "",
+    nameEn: "",
+    posterUrl: "",
+    description: "",
+    year: "",
+    rating: "",
+    genres: [],
+    country: "",
+    filmLength: "",
+    webUrl: ""
+}
+
+const previousMovieReducer = (state: any = initialStatePreviousMovie, action:any) => {
+    switch (action.type) {
+        case SET_PREVIOUS_MOVIE:
+            return {
+                ...state,
+                id: action.payload.id,
+                nameRu: action.payload.nameRu,
+                nameEn: action.payload.nameEn,
+                posterUrl: action.payload.posterUrl,
+                description: action.payload.description,
+                year: action.payload.year,
+                rating: action.payload.rating,
+                genres: action.payload.genres,
+                country: action.payload.country,
+                filmLength: action.payload.filmLength,
+                webUrl: action.payload.webUrl
+            }
+
         default:
             return state;
     }
@@ -119,7 +189,8 @@ const movieReducer = (state: any = initialStateMovie, action:any) => {
 
 const initialStateApp = {
     isLoading: false,
-    isLoaded: false
+    isLoaded: false,
+    prevButtonDisabled: true
 }
 
 const appReducer = (state: any = initialStateApp, action:any) => {
@@ -134,6 +205,11 @@ const appReducer = (state: any = initialStateApp, action:any) => {
                 ...state,
                 isLoaded: action.payload
             }
+        case SET_DISABLED_PREVIOUS_MOVIE_BUTTON:
+            return {
+                ...state,
+                prevButtonDisabled: action.payload
+            }
         default:
             return state;
     }
@@ -142,7 +218,7 @@ const appReducer = (state: any = initialStateApp, action:any) => {
 
 
 
-const rootReducer = combineReducers({filter: filtersReducer, movie: movieReducer, app: appReducer});
+const rootReducer = combineReducers({filter: filtersReducer, movie: movieReducer, app: appReducer, previousMovie: previousMovieReducer});
 const store = configureStore({reducer: rootReducer});
 
 

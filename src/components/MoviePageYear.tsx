@@ -7,7 +7,7 @@ const MoviePageYear = () => {
     let year = useSelector<RootState, string>(store => store.movie.year);
     return (
         <div className={styles.MoviePageYear}>
-            Год : {year}
+            {(year == null || year == "") ? <div><b>Год:</b> неизвестен</div> : <div><b>Год:</b> {year}</div>}
         </div>
     );
 };

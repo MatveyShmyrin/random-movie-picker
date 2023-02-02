@@ -8,12 +8,12 @@ import {getRandomFilmId, getRandomPageId} from "../functions/random";
 
 import {
     SET_COUNTRY,
-    SET_DESCRIPTION, SET_FILM_LENGTH, SET_GENRES,
+    SET_DESCRIPTION, SET_DISABLED_PREVIOUS_MOVIE_BUTTON, SET_FILM_LENGTH, SET_GENRES,
     SET_ID, SET_IS_LOADED, SET_IS_LOADING,
     SET_NAME_EN,
     SET_NAME_RU,
-    SET_POSTER_URL,
-    SET_RATING,
+    SET_POSTER_URL, SET_PREVIOUS_MOVIE,
+    SET_RATING, SET_WEB_URL,
     SET_YEAR
 } from "../redux/actions";
 
@@ -23,12 +23,13 @@ import {
 
 
 const RollButton = (props: any) => {
-    let filter = useSelector<RootState, number>(store => store.filter);
-    let movie = useSelector<RootState, number>(store => store.movie);
+    let movie = useSelector<RootState, object>(store => store.movie);
+    let id = useSelector<RootState, string>(store => store.movie.id);
     let minRating = useSelector<RootState, number>(store => store.filter.minRating);
     let maxRating = useSelector<RootState, number>(store => store.filter.maxRating);
     let country = useSelector<RootState, number|"">(store => store.filter.country);
     let genre = useSelector<RootState, number|"">(store => store.filter.genre);
+    let prevButtonDisabled = useSelector<RootState, boolean>(store => store.app.prevButtonDisabled);
 
     const dispatch = useDispatch();
 
@@ -49,10 +50,13 @@ const RollButton = (props: any) => {
             <ColorButton
                 style={{width: props.w, height: props.h}}
                 onClick={() => {
-                console.log("Filter settings: ");
-                console.log(filter);
-
                 dispatch({type: SET_IS_LOADING, payload: true});
+                dispatch({type: SET_PREVIOUS_MOVIE, payload: movie});
+
+                if ((id != "") && (id != null)){
+                    dispatch({type: SET_DISABLED_PREVIOUS_MOVIE_BUTTON, payload: false});
+                }
+
 
                 fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films'
                     , {
@@ -66,9 +70,8 @@ const RollButton = (props: any) => {
                         setIds(json.items.length-1);
                     }
                 )
-
-                fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films?ratingFrom='+minRating.toString()+
-                    '&type=FILM'+'&ratingTo='+maxRating.toString()+'&genres='+genre+'&countries='+country+'&page='+getRandomPageId(5)
+                fetch('https://kinopoiskapiunofficial.tech/api/v2.2/films?ratingFrom=' + minRating.toString() +
+                    '&type=FILM' + '&ratingTo=' + maxRating.toString() + '&genres=' + genre.toString() + '&countries=' + country.toString() + '&page=' + getRandomPageId(5).toString()
                     , {
                         method: 'GET',
                         headers: {
@@ -101,7 +104,7 @@ const RollButton = (props: any) => {
                                 dispatch({type: SET_GENRES, payload: json.genres});
                                 dispatch({type: SET_COUNTRY, payload: json.countries[0].country});
                                 dispatch({type: SET_FILM_LENGTH, payload: json.filmLength});
-                                console.log(json);
+                                dispatch({type: SET_WEB_URL, payload: json.webUrl})
                             }
                     )
                         .catch(err => console.log(err))

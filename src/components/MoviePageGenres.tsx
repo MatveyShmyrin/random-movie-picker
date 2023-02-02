@@ -16,7 +16,7 @@ const MoviePageGenres = () => {
     }
     return (
         <div className={styles.MoviePageGenres}>
-            Жанры: {makeGenresString()}
+            <b>Жанры:</b> {makeGenresString()}
         </div>
     );
 };
