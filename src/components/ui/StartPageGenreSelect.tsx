@@ -4,15 +4,15 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../index";
-import {SET_FILTER_GENRE} from "../redux/actions";
+import {RootState} from "../../index";
+import {setFilterGenre} from "../../redux/actionCreators";
 
 
 export default function StartPageGenreSelect() {
     const dispatch = useDispatch();
     let genre = useSelector<RootState, string|"">(store => store.filter.genre);
     const handleChange = (event: SelectChangeEvent) => {
-        dispatch({type: SET_FILTER_GENRE, payload: event.target.value.toString()});
+        dispatch(setFilterGenre(event.target.value.toString()));
     };
 
     return (

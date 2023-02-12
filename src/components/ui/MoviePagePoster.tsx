@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "../styles/MoviePage.module.css";
+import styles from "../../styles/MoviePage.module.css";
 import {useSelector} from "react-redux";
-import {RootState} from "../index";
+import {RootState} from "../../index";
 import {Container} from "react-bootstrap";
 
 const MoviePagePoster = () => {

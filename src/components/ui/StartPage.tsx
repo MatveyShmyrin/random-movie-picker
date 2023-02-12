@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../styles/StartPage.module.css";
+import styles from "../../styles/StartPage.module.css";
 import StartPageName from "./StartPageName";
 import StartPageFilter from "./StartPageFilter";
 import RollButton from "./RollButton";

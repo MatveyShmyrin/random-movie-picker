@@ -3,19 +3,17 @@ import {Button, ButtonProps, styled} from "@mui/material";
 import {purple} from "@mui/material/colors";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from 'react-router-dom'
-import {RootState} from "../index";
-import {getRandomFilmId, getRandomPageId} from "../functions/random";
-
+import {RootState} from "../../index";
+import {getRandomFilmId, getRandomPageId} from "../../functions/random";
 import {
-    SET_COUNTRY,
-    SET_DESCRIPTION, SET_DISABLED_PREVIOUS_MOVIE_BUTTON, SET_FILM_LENGTH, SET_GENRES,
-    SET_ID, SET_IS_LOADED, SET_IS_LOADING,
-    SET_NAME_EN,
-    SET_NAME_RU,
-    SET_POSTER_URL, SET_PREVIOUS_MOVIE,
-    SET_RATING, SET_WEB_URL,
-    SET_YEAR
-} from "../redux/actions";
+    setCountry,
+    setDescription,
+    setDisabledPreviousMovieButton, setFilmLength, setGenres,
+    setId, setIsLoaded,
+    setIsLoading,
+    setNameEn, setNameRu, setPosterUrl,
+    setPreviousMovie, setRating, setWebUrl, setYear
+} from "../../redux/actionCreators";
 
 
 
@@ -29,7 +27,6 @@ const RollButton = (props: any) => {
     let maxRating = useSelector<RootState, number>(store => store.filter.maxRating);
     let country = useSelector<RootState, number|"">(store => store.filter.country);
     let genre = useSelector<RootState, number|"">(store => store.filter.genre);
-    let prevButtonDisabled = useSelector<RootState, boolean>(store => store.app.prevButtonDisabled);
 
     const dispatch = useDispatch();
 
@@ -50,11 +47,11 @@ const RollButton = (props: any) => {
             <ColorButton
                 style={{width: props.w, height: props.h}}
                 onClick={() => {
-                dispatch({type: SET_IS_LOADING, payload: true});
-                dispatch({type: SET_PREVIOUS_MOVIE, payload: movie});
+                dispatch(setIsLoading(true));
+                dispatch(setPreviousMovie(movie));
 
                 if ((id != "") && (id != null)){
-                    dispatch({type: SET_DISABLED_PREVIOUS_MOVIE_BUTTON, payload: false});
+                    dispatch(setDisabledPreviousMovieButton(false));
                 }
 
 
@@ -94,28 +91,28 @@ const RollButton = (props: any) => {
                         .then(res => res.json())
                         .then(json => {
                                 console.log("Responded movie: ");
-                                dispatch({type: SET_ID, payload: json.kinopoiskId});
-                                dispatch({type: SET_NAME_EN, payload: json.nameOriginal});
-                                dispatch({type: SET_NAME_RU, payload: json.nameRu});
-                                dispatch({type: SET_POSTER_URL, payload: json.posterUrl});
-                                dispatch({type: SET_DESCRIPTION, payload: json.description});
-                                dispatch({type: SET_YEAR, payload: json.year});
-                                dispatch({type: SET_RATING, payload: json.ratingKinopoisk});
-                                dispatch({type: SET_GENRES, payload: json.genres});
-                                dispatch({type: SET_COUNTRY, payload: json.countries[0].country});
-                                dispatch({type: SET_FILM_LENGTH, payload: json.filmLength});
-                                dispatch({type: SET_WEB_URL, payload: json.webUrl})
+                                dispatch(setId(json.kinopoiskId));
+                                dispatch(setNameEn(json.nameOriginal));
+                                dispatch(setNameRu(json.nameRu));
+                                dispatch(setPosterUrl(json.posterUrl));
+                                dispatch(setDescription(json.description));
+                                dispatch(setYear(json.year));
+                                dispatch(setRating(json.ratingKinopoisk));
+                                dispatch(setGenres(json.genres));
+                                dispatch(setCountry(json.countries[0].country));
+                                dispatch(setFilmLength(json.filmLength));
+                                dispatch(setWebUrl(json.webUrl))
                             }
                     )
                         .catch(err => console.log(err))
                 }).then(() => {
                     setTimeout(() => {
-                    dispatch({type: SET_IS_LOADING, payload: false});
+                    dispatch(setIsLoading(false));
                     console.log("NOT LOADING");
                 },1)
                     }).then(()=>{
                         setTimeout(() => {
-                            dispatch({type: SET_IS_LOADED, payload: true});
+                            dispatch(setIsLoaded(true));
                             console.log("LOADED");
                             console.log(movie);
                         }, 1)

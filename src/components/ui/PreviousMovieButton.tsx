@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, ButtonProps, styled} from "@mui/material";
 import {purple} from "@mui/material/colors";
-import {SET_DISABLED_PREVIOUS_MOVIE_BUTTON, SET_PREVIOUS_MOVIE, SET_PREVIOUS_MOVIE_BACK,} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../index";
+import {RootState} from "../../index";
+import {setDisabledPreviousMovieButton, setToPreviousMovie} from "../../redux/actionCreators";
 
 const PreviousMovieButton = () => {
 
@@ -27,8 +27,8 @@ const PreviousMovieButton = () => {
     return (
         <div style={{width: "200px", height: "50px"}}>
             <ColorButton disabled={prevButtonDisabled} onClick = {(event)=>{
-                dispatch({type: SET_PREVIOUS_MOVIE_BACK, payload: previousMovie});
-                dispatch({type: SET_DISABLED_PREVIOUS_MOVIE_BUTTON, payload: true});
+                dispatch(setToPreviousMovie(previousMovie));
+                dispatch(setDisabledPreviousMovieButton(true));
             }}>
                 Предыдущий фильм
             </ColorButton>

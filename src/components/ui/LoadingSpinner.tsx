@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {RootState} from "../index";
-import loading from "../img/loading.gif";
+import {RootState} from "../../index";
+import loading from "../../img/loading.gif";
 
 const LoadingSpinner = (props: any) => {
     let isLoading = useSelector<RootState, boolean>(store => store.app.isLoading);

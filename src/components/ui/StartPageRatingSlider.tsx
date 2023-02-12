@@ -2,8 +2,8 @@ import React from 'react';
 import Slider from '@mui/material/Slider';
 import {Box, Typography} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../index";
-import {SET_MAX_RATING, SET_MIN_RATING} from "../redux/actions";
+import {RootState} from "../../index";
+import {setMaxRating, setMinRating} from "../../redux/actionCreators";
 
 
 
@@ -28,12 +28,12 @@ const StartPageRatingSlider = () => {
             return;
         }
         if (activeThumb === 0) {
-            dispatch({type:SET_MIN_RATING, payload: Math.min(newRating[0], maxRating - minDistance)});
-            dispatch({type:SET_MAX_RATING, payload: maxRating});
+            dispatch(setMinRating(Math.min(newRating[0], maxRating - minDistance)));
+            dispatch(setMaxRating(maxRating));
         }
         else {
-            dispatch({type:SET_MIN_RATING, payload: minRating});
-            dispatch({type:SET_MAX_RATING, payload: Math.max(newRating[1], minRating + minDistance)});
+            dispatch(setMinRating(maxRating));
+            dispatch(setMaxRating(Math.max(newRating[1], minRating + minDistance)));
         }
     };
 

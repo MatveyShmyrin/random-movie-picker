@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../styles/StartPageName.module.css";
+import styles from "../../styles/StartPageName.module.css";
 
 const StartPageName = () => {
     return (

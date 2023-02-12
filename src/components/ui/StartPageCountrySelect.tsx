@@ -4,15 +4,15 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../index";
-import {SET_FILTER_COUNTRY} from "../redux/actions";
+import {RootState} from "../../index";
+import {setFilterCountry} from "../../redux/actionCreators";
 
 export default function StartPageCountrySelect() {
 
     const dispatch = useDispatch();
     let country = useSelector<RootState, string|"">(store => store.filter.country);
     const handleChange = (event: SelectChangeEvent) => {
-        dispatch({type: SET_FILTER_COUNTRY, payload: event.target.value.toString()});
+        dispatch(setFilterCountry(event.target.value.toString()));
     };
 
     return (

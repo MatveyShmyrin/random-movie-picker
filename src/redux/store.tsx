@@ -16,7 +16,7 @@ import {
     SET_NAME_RU,
     SET_POSTER_URL,
     SET_PREVIOUS_MOVIE,
-    SET_PREVIOUS_MOVIE_BACK,
+    SET_TO_PREVIOUS_MOVIE,
     SET_RATING,
     SET_WEB_URL,
     SET_YEAR
@@ -130,7 +130,7 @@ const movieReducer = (state: any = initialStateMovie, action:any) => {
                 ...state,
                 webUrl: action.payload
             }
-        case SET_PREVIOUS_MOVIE_BACK:
+        case SET_TO_PREVIOUS_MOVIE:
             return {
                 ...state,
                 id: action.payload.id,

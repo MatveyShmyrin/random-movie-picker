@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {RootState} from "../index";
-import styles from "../styles/MoviePage.module.css";
+import {RootState} from "../../index";
+import styles from "../../styles/MoviePage.module.css";
 
 const MoviePageDescription = () => {
     let description = useSelector<RootState, string|null>(store => store.movie.description);
