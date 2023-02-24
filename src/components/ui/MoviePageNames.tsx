@@ -1,16 +1,12 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {RootState} from "../../index";
 import styles from "../../styles/MoviePage.module.css";
 import {Container} from "react-bootstrap";
 
-const MoviePageNames = () => {
-    let nameRu = useSelector<RootState, string>(store => store.movie.nameRu);
-    let nameEn = useSelector<RootState, string>(store => store.movie.nameEn);
+const MoviePageNames = (props: any) => {
     return (
         <Container className={styles.MoviePageNames}>
-            <h1>{nameRu}</h1>
-            <h1>{nameEn}</h1>
+            <h1>{props.nameRu}</h1>
+            <h1>{props.nameEn}</h1>
         </Container>
     );
 };

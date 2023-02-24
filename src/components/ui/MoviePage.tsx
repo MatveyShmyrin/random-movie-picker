@@ -1,51 +1,45 @@
 import React from 'react';
-import RollButton from "./RollButton";
-import LoadingSpinner from "./LoadingSpinner";
 import styles from "../../styles/MoviePage.module.css";
-import MoviePagePoster from "./MoviePagePoster";
-import MoviePageNames from "./MoviePageNames";
-import {Container} from "react-bootstrap";
-import MoviePageDescription from "./MoviePageDescription";
-import MoviePageRating from "./MoviePageRating";
-import MoviePageYear from "./MoviePageYear";
-import MoviePageGenres from "./MoviePageGenres";
-import MoviePageCountry from "./MoviePageCountry";
-import MoviePageFilmLength from "./MoviePageFilmLength";
-import MoviePageLink from "./MoviePageLink";
-import PreviousMovieButton from "./PreviousMovieButton";
 import BackButton from "./BackButton";
-
-
+import LoadingSpinnerContainer from "../containers/LoadingSpinnerContainer";
+import MoviePageCountryContainer from "../containers/MoviePageCountryContainer";
+import MoviePageDescriptionContainer from "../containers/MoviePageDescriptionContainer";
+import MoviePageFilmLengthContainer from "../containers/MoviePageFilmLengthContainer";
+import MoviePageGenresContainer from "../containers/MoviePageGenresContainer";
+import MoviePageLinkContainer from "../containers/MoviePageLinkContainer";
+import MoviePageNamesContainer from "../containers/MoviePageNamesContainer";
+import MoviePagePosterContainer from "../containers/MoviePagePosterContainer";
+import MoviePageRatingContainer from "../containers/MoviePageRatingContainer";
+import MoviePageYearContainer from "../containers/MoviePageYearContainer";
+import PreviousMovieButtonContainer from '../containers/PreviousMovieButtonContainer';
+import RollButtonContainer from "../containers/RollButtonContainer";
 
 const MoviePage = () => {
-
     return (
         <div className={styles.MoviePage}>
-            <Container style={{display: "flex", flexDirection: "row"}}>
+            <div style={{display: "flex", flexDirection: "row"}}>
                 <div style={{display: "flex", flexDirection: "column"}}>
-                    <MoviePagePoster />
-                    <MoviePageRating />
+                    <MoviePagePosterContainer />
+                    <MoviePageRatingContainer />
                 </div>
                 <div style={{display: "flex", flexDirection: "column"}}>
-                    <MoviePageNames />
-                    <MoviePageYear />
-                    <MoviePageFilmLength />
-                    <MoviePageGenres />
-                    <MoviePageCountry />
-                    <MoviePageDescription />
-                    <MoviePageLink />
+                    <MoviePageNamesContainer />
+                    <MoviePageYearContainer />
+                    <MoviePageFilmLengthContainer />
+                    <MoviePageGenresContainer />
+                    <MoviePageCountryContainer />
+                    <MoviePageDescriptionContainer />
+                    <MoviePageLinkContainer />
                 </div>
-            </Container>
-
-
+            </div>
             <div>
                 <div className={styles.MoviePageButtons}>
-                    <PreviousMovieButton/>
-                    <RollButton w = {"200px"} h = {"50px"} mL = {"200px"} mT = {"100px"}/>
+                    <PreviousMovieButtonContainer />
+                    <RollButtonContainer w = {"200px"} h = {"50px"} mL = {"200px"} mT = {"100px"}/>
                     <BackButton/>
                 </div>
                 <div>
-                    <LoadingSpinner mL = {"465px"}/>
+                    <LoadingSpinnerContainer mL = {"465px"}/>
                 </div>
             </div>
         </div>

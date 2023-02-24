@@ -8,13 +8,11 @@ import {RootState} from "../../index";
 import {setFilterCountry} from "../../redux/actionCreators";
 
 export default function StartPageCountrySelect() {
-
     const dispatch = useDispatch();
     let country = useSelector<RootState, string|"">(store => store.filter.country);
     const handleChange = (event: SelectChangeEvent) => {
         dispatch(setFilterCountry(event.target.value.toString()));
     };
-
     return (
         <div>
             <FormControl fullWidth style={{width: 350, marginLeft:25, marginTop:20}}>

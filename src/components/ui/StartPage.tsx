@@ -2,10 +2,10 @@ import React from 'react';
 import styles from "../../styles/StartPage.module.css";
 import StartPageName from "./StartPageName";
 import StartPageFilter from "./StartPageFilter";
-import RollButton from "./RollButton";
-import StartPageRatingSlider from "./StartPageRatingSlider";
-import LoadingSpinner from "./LoadingSpinner";
 
+import StartPageRatingSlider from "./StartPageRatingSlider";
+import LoadingSpinnerContainer from "../containers/LoadingSpinnerContainer";
+import RollButtonContainer from "../containers/RollButtonContainer";
 
 
 const StartPage = () => {
@@ -14,8 +14,8 @@ const StartPage = () => {
             <StartPageName/>
             <StartPageFilter/>
             <StartPageRatingSlider/>
-            <RollButton w = {"200px"} h = {"50px"} mT = {"40px"} mL = {"100px"}/>
-            <LoadingSpinner mL = {"165px"} mT = {"10px"}/>
+            <RollButtonContainer w = {"200px"} h = {"50px"} mT = {"40px"} mL = {"100px"}/>
+            <LoadingSpinnerContainer mL = {"165px"} mT = {"10px"}/>
         </div>
     );
 };

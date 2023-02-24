@@ -7,9 +7,7 @@ import {useSelector} from "react-redux";
 import {RootState} from "./index";
 
 function App() {
-
     let isLoaded = useSelector<RootState, boolean>(store => store.app.isLoaded);
-
     return (
             <div className={styles.App}>
                 <Routes>

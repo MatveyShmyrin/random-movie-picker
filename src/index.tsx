@@ -9,8 +9,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-export type RootState = ReturnType<typeof store.getState>;
-
 root.render(
     <BrowserRouter>
         <Provider store={store}>
@@ -19,3 +17,4 @@ root.render(
     </BrowserRouter>
 );
 
+export type RootState = ReturnType<typeof store.getState>;
