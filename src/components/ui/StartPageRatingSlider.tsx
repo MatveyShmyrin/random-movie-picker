@@ -32,7 +32,7 @@ const StartPageRatingSlider = () => {
             dispatch(setMaxRating(maxRating));
         }
         else {
-            dispatch(setMinRating(maxRating));
+            dispatch(setMinRating(minRating));
             dispatch(setMaxRating(Math.max(newRating[1], minRating + minDistance)));
         }
     };
