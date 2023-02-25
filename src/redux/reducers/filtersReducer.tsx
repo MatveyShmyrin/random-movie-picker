@@ -22,7 +22,7 @@ export const filtersReducer = (state: any = initialStateFilters, action:any) => 
         case SET_FILTER_COUNTRY:
             return {
                 ...state,
-                countries: action.payload
+                country: action.payload
             }
         case SET_FILTER_GENRE:
             return {
