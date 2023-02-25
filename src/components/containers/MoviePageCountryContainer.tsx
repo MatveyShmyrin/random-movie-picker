@@ -2,11 +2,12 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import {RootState} from "../../index";
 import MoviePageCountry from "../ui/MoviePageCountry";
+import {makeCountriesString} from "../../functions/makeCountiesString";
 
 const MoviePageCountryContainer = () => {
-    let country = useSelector<RootState, string>(store => store.movie.country);
+    let countries = useSelector<RootState, []>(store => store.movie.countries);
     return (
-        <MoviePageCountry country = {country} />
+        <MoviePageCountry countryString = {makeCountriesString(countries)}/>
     );
 };
 

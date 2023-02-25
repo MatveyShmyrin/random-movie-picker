@@ -1,5 +1,5 @@
 import {
-    SET_COUNTRY,
+    SET_COUNTRIES,
     SET_DESCRIPTION, SET_FILM_LENGTH, SET_GENRES,
     SET_ID,
     SET_NAME_EN,
@@ -18,7 +18,7 @@ const initialStateMovie = {
     year: "",
     rating: "",
     genres: [],
-    country: "",
+    countries: [],
     filmLength: "",
     webUrl: ""
 }
@@ -65,10 +65,10 @@ export const movieReducer = (state: any = initialStateMovie, action:any) => {
                 ...state,
                 genres: action.payload
             }
-        case SET_COUNTRY:
+        case SET_COUNTRIES:
             return {
                 ...state,
-                country: action.payload
+                countries: action.payload
             }
         case SET_FILM_LENGTH:
             return {
@@ -91,7 +91,7 @@ export const movieReducer = (state: any = initialStateMovie, action:any) => {
                 year: action.payload.year,
                 rating: action.payload.rating,
                 genres: action.payload.genres,
-                country: action.payload.country,
+                countries: action.payload.countries,
                 filmLength: action.payload.filmLength,
                 webUrl: action.payload.webUrl
             }

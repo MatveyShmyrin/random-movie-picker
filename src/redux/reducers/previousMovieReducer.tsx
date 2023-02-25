@@ -9,7 +9,7 @@ const initialStatePreviousMovie = {
     year: "",
     rating: "",
     genres: [],
-    country: "",
+    countries: [],
     filmLength: "",
     webUrl: ""
 }
@@ -27,7 +27,7 @@ export const previousMovieReducer = (state: any = initialStatePreviousMovie, act
                 year: action.payload.year,
                 rating: action.payload.rating,
                 genres: action.payload.genres,
-                country: action.payload.country,
+                countries: action.payload.countries,
                 filmLength: action.payload.filmLength,
                 webUrl: action.payload.webUrl
             }

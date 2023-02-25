@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../index";
 import {
-    setCountry,
+    setCountries,
     setDescription,
     setDisabledPreviousMovieButton, setFilmLength, setGenres, setId, setIsLoaded,
     setIsLoading, setNameEn, setNameRu, setPosterUrl,
@@ -56,6 +56,7 @@ const RollButtonContainer = (props: any) => {
             }).then(res => res.json()).then(json =>
             {
                 let newItem = json.items[getRandomFilmId(idsInPage)];
+                console.log(json);
                 return newItem.kinopoiskId.toString();
             }
         ).then((fetchedId) => {
@@ -76,7 +77,7 @@ const RollButtonContainer = (props: any) => {
                         dispatch(setYear(json.year));
                         dispatch(setRating(json.ratingKinopoisk));
                         dispatch(setGenres(json.genres));
-                        dispatch(setCountry(json.countries[0].country));
+                        dispatch(setCountries(json.countries));
                         dispatch(setFilmLength(json.filmLength));
                         dispatch(setWebUrl(json.webUrl))
                     }

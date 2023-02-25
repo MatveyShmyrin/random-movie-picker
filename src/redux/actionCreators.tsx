@@ -82,10 +82,10 @@ export const setFilmLength = (filmLength: string|null) => {
     }
 }
 
-export const setCountry = (country: string|null) => {
+export const setCountries = (countries: Array<object>) => {
     return {
-        type: "SET_COUNTRY",
-        payload: country
+        type: "SET_COUNTRIES",
+        payload: countries
     }
 }
 
